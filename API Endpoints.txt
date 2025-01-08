@@ -1,0 +1,5 @@
+https://api.idescat.cat/emex/v1/dades.xml?id=080174
+
+https://api.idescat.cat/emex/v1/nodes.json?tipus=mun
+
+https://api.idescat.cat/emex/v1/nodes.json?tipus=com
