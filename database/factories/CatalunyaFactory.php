@@ -5,23 +5,23 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tarragona>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Catalunya>
  */
-class TarragonaFactory extends Factory
+class CatalunyaFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             "nom" => $this->faker->firstName,
-            "comarca" => \App\Models\Comarca::all()->random()->id,
-            "provincia" => \App\Models\Provincia::all()->random()->id,
+            "comarca" => $this->faker->firstName,
+            "provincia" => $this->faker->firstName,
             "descripcio" => $this->faker->firstName,
-            "imatge" => $this->faker->firstName
+            "fotos" => $this->faker->firstName,
         ];
     }
 }

@@ -3,24 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Barcelona;
+use App\Models\Catalunya;
+use Illuminate\Pagination\Paginator;
 
-class BarcelonaController extends Controller
+class CatalunyaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $query = Barcelona::query();
-    
-        // Lógica de búsqueda
-        if ($request->has('search') && !empty($request->search)) {
-            $query->where('nom', 'like', '%' . $request->search . '%');
-        }
-    
-        $tarragona = $query->paginate(10);  // Paginación de resultados
-        return view('tarragona', compact('tarragona'));
+        Paginator::useBootstrap();
+        $catalunya = Catalunya::paginate(10);
+        return view("catalunya", compact("catalunya"));
     }
 
     /**
