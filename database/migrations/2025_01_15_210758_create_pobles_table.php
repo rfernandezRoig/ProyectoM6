@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalunyas', function (Blueprint $table) {
+        Schema::create('pobles', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
+            $table->string('municipi')->unique();
             $table->string('comarca');
             $table->string('provincia');
-            $table->string('descripcio');
-            $table->string('fotos');
+            $table->text('descripcio');
+            $table->string('imatge');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalunyas');
+        Schema::dropIfExists('pobles');
     }
 };

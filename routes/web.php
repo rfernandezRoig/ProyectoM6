@@ -1,10 +1,17 @@
 <?php
 
-use App\Http\Controllers\CatalunyaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PoblesController;
 
-Route::get('/', [CatalunyaController::class, 'index']);
+Auth::routes(['register' => false]);
 
-Auth::routes();
+// Redirect the root `/` to the index method
+Route::get('/', [PoblesController::class, 'index'])->name('index');
 
-Route::resource('catalunya', CatalunyaController::class);
+// Define other resourceful routes manually
+Route::get('/create', [PoblesController::class, 'create'])->name('create')->middleware('auth');
+Route::post('/', [PoblesController::class, 'store'])->name('store');
+Route::get('/{id}', [PoblesController::class, 'show'])->name('show');
+Route::get('/{id}/edit', [PoblesController::class, 'edit'])->name('edit');
+Route::put('/{id}', [PoblesController::class, 'update'])->name('update')->middleware('auth');
+Route::delete('/{id}', [PoblesController::class, 'destroy'])->name('destroy')->middleware('auth');
