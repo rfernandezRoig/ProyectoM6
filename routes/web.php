@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PoblesController;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
 
